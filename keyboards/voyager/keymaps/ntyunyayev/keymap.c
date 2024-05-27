@@ -21,7 +21,15 @@ enum custom_keycodes {
   MT_LALT_KC_DLR_DUMMY,
   MT_LCTL_KC_BSLS_DUMMY,
   MT_LSFT_KC_AMPR_DUMMY,
-  MT_LGUI_KC_EXLM_DUMMY
+  MT_LGUI_KC_EXLM_DUMMY,
+  MT_LALT_LGUI_KC1_DUMMY,
+  MT_LALT_LGUI_KC2_DUMMY,
+  MT_LCTL_LGUI_KC3_DUMMY,
+  MT_LCTL_LGUI_KC4_DUMMY,
+  MT_LSFT_LGUI_KC5_DUMMY,
+  MT_LSFT_LGUI_KC6_DUMMY,
+  MT_LGUI_LGUI_KC7_DUMMY,
+  MT_LGUI_LGUI_KC8_DUMMY,
 };
 
 #define MT_LALT_KC_UNDS MT(MOD_LALT,MT_LALT_KC_UNDS_DUMMY)
@@ -33,6 +41,14 @@ enum custom_keycodes {
 #define MT_LSFT_KC_AMPR MT(MOD_LSFT,MT_LSFT_KC_AMPR_DUMMY)
 #define MT_LGUI_KC_EXLM MT(MOD_LGUI,MT_LGUI_KC_EXLM_DUMMY)
 
+#define MT_LALT_LGUI_KC1 MT(MOD_LALT,MT_LALT_LGUI_KC1_DUMMY)
+#define MT_LALT_LGUI_KC2 MT(MOD_LALT,MT_LALT_LGUI_KC2_DUMMY)
+#define MT_LCTL_LGUI_KC3 MT(MOD_LCTL,MT_LCTL_LGUI_KC3_DUMMY)
+#define MT_LCTL_LGUI_KC4 MT(MOD_LCTL,MT_LCTL_LGUI_KC4_DUMMY)
+#define MT_LSFT_LGUI_KC5 MT(MOD_LSFT,MT_LSFT_LGUI_KC5_DUMMY)
+#define MT_LSFT_LGUI_KC6 MT(MOD_LSFT,MT_LSFT_LGUI_KC6_DUMMY)
+#define MT_LGUI_LGUI_KC7 MT(MOD_LGUI,MT_LGUI_LGUI_KC7_DUMMY)
+#define MT_LGUI_LGUI_KC8 MT(MOD_LGUI,MT_LGUI_LGUI_KC8_DUMMY)
 
 
 
@@ -63,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_F11,         LGUI(KC_7),     LGUI(KC_5),     LGUI(KC_3),     LGUI(KC_1),                                     LGUI(KC_2),     LGUI(KC_4),     LGUI(KC_6),     LGUI(KC_8),     KC_F12,         KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_F11,         MT_LGUI_LGUI_KC7,     MT_LSFT_LGUI_KC5,     MT_LCTL_LGUI_KC3,     MT_LALT_LGUI_KC1,                                     MT_LALT_LGUI_KC2,     MT_LCTL_LGUI_KC4,     MT_LSFT_LGUI_KC6, MT_LGUI_LGUI_KC8,     KC_F12,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,RGB_TOG,                                        KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -179,7 +195,54 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             break;
-
+        case MT_LALT_LGUI_KC1:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_1));
+                return false;
+            }
+            break;
+        case MT_LALT_LGUI_KC2:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_2));
+                return false;
+            }
+            break;
+        case MT_LCTL_LGUI_KC3:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_3));
+                return false;
+            }
+            break;
+        case MT_LCTL_LGUI_KC4:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_4));
+                return false;
+            }
+            break;
+        case MT_LSFT_LGUI_KC5:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_5));
+                return false;
+            }
+            break;
+        case MT_LSFT_LGUI_KC6:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_6));
+                return false;
+            }
+            break;
+        case MT_LGUI_LGUI_KC7:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_7));
+                return false;
+            }
+            break;
+        case MT_LGUI_LGUI_KC8:
+            if (record->event.pressed && record->tap.count > 0) {
+                tap_code16(LGUI(KC_8));
+                return false;
+            }
+            break;
         case RGB_SLD:
             if (record->event.pressed) {
                 rgblight_mode(1);
