@@ -6,7 +6,7 @@
 #define COMBO_TERM 30
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define FIRMWARE_VERSION u8"nPnXG/Jenrp"
+#define FIRMWARE_VERSION u8"nPnXG/Nzvla"
 #define RAW_USAGE_PAGE 0xFF60
 #define RAW_USAGE_ID 0x61
 #define LAYER_STATE_8BIT
