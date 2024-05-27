@@ -1,0 +1,2 @@
+#define US_CCED ALGR(KC_COMM)
+#define US_EACU ALGR(KC_E)
