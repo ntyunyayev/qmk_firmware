@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 // clang-format on
-const uint16_t PROGMEM combo0[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo0[] = {KC_Y, KC_U, COMBO_END};
 const uint16_t PROGMEM combo1[] = {LT(5, KC_M), KC_COMMA, COMBO_END};
 const uint16_t PROGMEM combo2[] = {KC_C, KC_V, COMBO_END};
 
